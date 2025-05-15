@@ -6,7 +6,7 @@ export default function OmakaseVideoPlayer() {
   const playerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 🧩 Monkey-patch for crypto.randomUUID if missing
+    // 🧩 Monkey-patch for crypto.randomUUID if missing, comment this out to recreate the issue
     if (
       typeof crypto !== 'undefined' &&
       typeof crypto.randomUUID !== 'function'
