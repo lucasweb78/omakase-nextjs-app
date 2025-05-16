@@ -1,16 +1,10 @@
-'use client'
-
-import dynamic from 'next/dynamic';
-
-const OmakaseVideoPlayer = dynamic(() => import('@/app/components/OmakaseVideoPlayer'), {
-  ssr: false,
-});
+import OmakasePlayerComponent from '@/app/components/OmakasePlayerComponent';
 
 export default function Page() {
   return (
     <main>
-      <h1>Omakase Video Player</h1>
-      <OmakaseVideoPlayer />
+      <h1>Omakase Video Player - Next.js Example</h1>
+      <OmakasePlayerComponent />
     </main>
   );
 }
