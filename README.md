@@ -1,4 +1,4 @@
-This is an example application to using [Omakase Player](https://player.byomakase.org) with [Next.js](https://nextjs.org)
+This is an example application showing how to use [Omakase Player](https://player.byomakase.org) with [Next.js](https://nextjs.org)
 
 ## Getting Started
 
