@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { OmakasePlayer } from '@byomakase/omakase-player'
 import './OmakasePlayerComponent.css'
 import { Play, Pause, Volume2, VolumeX, RotateCcw } from 'lucide-react'
+import type { Subscription } from 'rxjs'
 
 type Props = {
   streamUrl?: string
@@ -19,10 +20,14 @@ export default function OmakasePlayerComponent({
 
   useEffect(() => {
     let isMounted = true
-    let subscription: { unsubscribe: () => void } | null = null
-    let playSub: any, pauseSub: any, muteSub: any
+    let subscription: Subscription | null = null
+    let playSub: Subscription | null = null
+    let pauseSub: Subscription | null = null
+    let muteSub: Subscription | null = null
 
-    const unsubscribe = (sub: any) => sub?.unsubscribe?.()
+    const unsubscribe = (sub: Subscription | null | undefined) => {
+      sub?.unsubscribe()
+    }
 
     const initPlayer = async () => {
       if (!playerContainerRef.current) return
@@ -56,14 +61,18 @@ export default function OmakasePlayerComponent({
 
     initPlayer()
 
+    const unsubscribeAll = () => {
+      unsubscribe(subscription);
+      unsubscribe(playSub);
+      unsubscribe(pauseSub);
+      unsubscribe(muteSub);
+      playerRef.current?.destroy();
+      playerRef.current = null;
+    };
+
     return () => {
       isMounted = false
-      unsubscribe(subscription)
-      unsubscribe(playSub)
-      unsubscribe(pauseSub)
-      unsubscribe(muteSub)
-      playerRef.current?.destroy()
-      playerRef.current = null
+      unsubscribeAll()
     }
   }, [streamUrl])
 
