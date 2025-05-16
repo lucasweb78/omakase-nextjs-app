@@ -1,4 +1,4 @@
-import OmakasePlayerComponent from '@/app/components/OmakasePlayerComponent';
+import OmakasePlayerComponent from '@/app/components/player/OmakasePlayerComponent';
 
 export default function Page() {
   return (

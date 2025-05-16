@@ -1,0 +1,62 @@
+audio {
+  display: none;
+}
+
+.omakase-player-container {
+  width: 100%;
+  max-width: 960px;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0;
+  position: static;
+  overflow: visible;
+}
+
+.omakase-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  position: static;
+  margin: 16px auto 0 auto;
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.omakase-controls button {
+  background: #18181b;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  pointer-events: auto;
+  outline: none;
+}
+
+.omakase-controls button:hover, .omakase-controls button:focus {
+  background: #27272a;
+  outline: none;
+}
+
+.omakase-controls button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.omakase-controls button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.omakase-controls svg {
+  display: block;
+}
