@@ -1,12 +1,10 @@
-audio {
-  display: none;
-}
+/* VideoPlayer.module.css */
 
-.omakase-player-wrapper {
+.wrapper {
   position: relative;
 }
 
-.omakase-player-container {
+.container {
   width: 100%;
   max-width: 960px;
   aspect-ratio: 16 / 9;
@@ -16,7 +14,7 @@ audio {
   overflow: visible;
 }
 
-.omakase-controls {
+.controls {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +25,7 @@ audio {
   z-index: 2;
 }
 
-.omakase-controls button {
+.controls button {
   background: #18181b;
   border: none;
   border-radius: 50%;
@@ -44,19 +42,19 @@ audio {
   outline: none;
 }
 
-.omakase-controls button:hover,
-.omakase-controls button:focus,
-.omakase-controls button:active {
+.controls button:hover,
+.controls button:focus,
+.controls button:active {
   background: #27272a;
   outline: none;
   box-shadow: none;
 }
 
-.omakase-controls svg {
+.controls svg {
   display: block;
 }
 
-.styled-frame-count {
+.frameCount {
   display: inline-flex;
   align-items: center;
   background: rgba(30, 30, 40, 0.85);
@@ -66,11 +64,12 @@ audio {
   font-size: 1.1em;
   font-weight: 600;
   color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
   letter-spacing: 0.5px;
   margin-left: 16px;
 }
-.current-frame {
+
+.currentFrame {
   color: #00e0a8;
   font-size: 1.25em;
   font-weight: 700;
@@ -78,17 +77,18 @@ audio {
   margin-right: 2px;
   transition: color 0.2s;
 }
-.frame-separator {
+
+.frameSeparator {
   color: #aaa;
   margin: 0 4px;
   font-size: 1.1em;
   font-weight: 400;
 }
-.total-frames {
+
+.totalFrames {
   color: #f7c873;
   font-size: 1.1em;
   font-weight: 600;
   text-shadow: 0 1px 4px #f7c87355;
   margin-left: 2px;
 }
-

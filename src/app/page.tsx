@@ -1,10 +1,10 @@
-import OmakasePlayerComponent from '@/app/components/player/OmakasePlayerComponent';
+import VideoPlayer from '@/app/components/VideoPlayer'
 
 export default function Page() {
   return (
     <main>
       <h1>Omakase Video Player - Next.js Example</h1>
-      <OmakasePlayerComponent />
+      <VideoPlayer />
     </main>
   );
 }

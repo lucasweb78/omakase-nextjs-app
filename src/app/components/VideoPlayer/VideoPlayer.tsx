@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import type { OmakasePlayer } from '@byomakase/omakase-player'
-import './OmakasePlayerComponent.css'
+import styles from './VideoPlayer.module.css'
 import { Play, Pause, Volume2, VolumeX, RotateCcw } from 'lucide-react'
 import type { Subscription } from 'rxjs'
 
@@ -10,7 +10,7 @@ type Props = {
   streamUrl?: string
 }
 
-export default function OmakasePlayerComponent({
+export default function VideoPlayer({
   streamUrl = 'https://demo.player.byomakase.org/data/sdr-ts/meridian_sdr.m3u8'
 }: Props) {
   const playerContainerRef = useRef<HTMLDivElement | null>(null)
@@ -73,6 +73,7 @@ export default function OmakasePlayerComponent({
       unsubscribe(playSub);
       unsubscribe(pauseSub);
       unsubscribe(muteSub);
+      unsubscribe(currentFrameSub);
       playerRef.current?.destroy();
       playerRef.current = null;
     };
@@ -108,13 +109,13 @@ export default function OmakasePlayerComponent({
   }
 
   return (
-    <div className="omakase-player-wrapper">
+    <div className={styles.wrapper}>
       <div
         id="omakase-player"
         ref={playerContainerRef}
-        className="omakase-player-container"
+        className={styles.container}
       />
-      <div className="omakase-controls">
+      <div className={styles.controls}>
         <button
           onClick={playerActions.playPause}
           onMouseUp={handleButtonBlur}
@@ -137,10 +138,10 @@ export default function OmakasePlayerComponent({
           <RotateCcw size={24} />
         </button>
         {/* Frame count display */}
-        <span className="omakase-frame-count styled-frame-count">
-          <span className="current-frame">{currentFrame}</span>
-          <span className="frame-separator">/</span>
-          <span className="total-frames">{totalFrames}</span>
+        <span className={styles.frameCount}>
+          <span className={styles.currentFrame}>{currentFrame}</span>
+          <span className={styles.frameSeparator}>/</span>
+          <span className={styles.totalFrames}>{totalFrames}</span>
         </span>
       </div>
     </div>
