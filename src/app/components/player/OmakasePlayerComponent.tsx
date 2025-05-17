@@ -17,6 +17,8 @@ export default function OmakasePlayerComponent({
   const playerRef = useRef<OmakasePlayer | null>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(false)
+  const [totalFrames, setTotalFrames] = useState<number>(0)
+  const [currentFrame, setCurrentFrame] = useState<number>(0)
 
   useEffect(() => {
     let isMounted = true
@@ -24,6 +26,7 @@ export default function OmakasePlayerComponent({
     let playSub: Subscription | null = null
     let pauseSub: Subscription | null = null
     let muteSub: Subscription | null = null
+    let currentFrameSub: Subscription | null = null
 
     const unsubscribe = (sub: Subscription | null | undefined) => {
       sub?.unsubscribe()
@@ -46,6 +49,7 @@ export default function OmakasePlayerComponent({
         next: () => {
           setIsPlaying(player.video.isPlaying())
           setIsMuted(player.video.isMuted())
+          setTotalFrames(player.video.getTotalFrames())
         },
         error: (err) => {
           console.error('Video load error:', err)
@@ -56,6 +60,9 @@ export default function OmakasePlayerComponent({
       pauseSub = player.video.onPause$.subscribe(() => setIsPlaying(false))
       muteSub = player.video.onVolumeChange$.subscribe(() =>
         setIsMuted(player.video.isMuted())
+      )
+      currentFrameSub = player.video.onVideoTimeChange$.subscribe((time) => 
+        setCurrentFrame(time.frame)
       )
     }
 
@@ -129,6 +136,10 @@ export default function OmakasePlayerComponent({
         >
           <RotateCcw size={24} />
         </button>
+        {/* Frame count display */}
+        <span className="omakase-frame-count" style={{ marginLeft: 12, fontSize: 14 }}>
+         {currentFrame}/{totalFrames} 
+        </span>
       </div>
     </div>
   )
