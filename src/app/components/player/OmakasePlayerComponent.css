@@ -56,3 +56,39 @@ audio {
   display: block;
 }
 
+.styled-frame-count {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(30, 30, 40, 0.85);
+  border-radius: 18px;
+  padding: 2px 14px 2px 10px;
+  font-family: 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  letter-spacing: 0.5px;
+  margin-left: 16px;
+}
+.current-frame {
+  color: #00e0a8;
+  font-size: 1.25em;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #00e0a855;
+  margin-right: 2px;
+  transition: color 0.2s;
+}
+.frame-separator {
+  color: #aaa;
+  margin: 0 4px;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+.total-frames {
+  color: #f7c873;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-shadow: 0 1px 4px #f7c87355;
+  margin-left: 2px;
+}
+

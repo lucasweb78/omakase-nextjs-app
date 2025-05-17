@@ -137,8 +137,10 @@ export default function OmakasePlayerComponent({
           <RotateCcw size={24} />
         </button>
         {/* Frame count display */}
-        <span className="omakase-frame-count" style={{ marginLeft: 12, fontSize: 14 }}>
-         {currentFrame}/{totalFrames} 
+        <span className="omakase-frame-count styled-frame-count">
+          <span className="current-frame">{currentFrame}</span>
+          <span className="frame-separator">/</span>
+          <span className="total-frames">{totalFrames}</span>
         </span>
       </div>
     </div>
